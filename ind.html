@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. Melvin Joel - ECE Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: scale(1.05);
+            color: #667eea;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .objective {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .company {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #764ba2;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .role {
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateX(10px);
+        }
+
+        .cert-title {
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .cert-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.9;
+            word-break: break-all;
+        }
+
+        .cert-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .education-header {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 8px;
+        }
+
+        .degree {
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .score {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>K. MELVIN JOEL</h1>
+            <p class="subtitle">Electronics & Communication Engineering</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Chennai, India</span>
+                </div>
+                <a href="tel:9150604966" class="contact-item contact-link">
+                    <span>📞</span>
+                    <span>9150604966</span>
+                </a>
+                <a href="mailto:melvinjoel2004@gmail.com" class="contact-item contact-link">
+                    <span>✉️</span>
+                    <span>melvinjoel2004@gmail.com</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>About Me</h2>
+            <p class="objective">
+                A motivated and enthusiastic fresher with a Bachelor's degree in Electronics and Communication Engineering, eager to update knowledge compatible with industrial needs. An adaptive team player skilled in Embedded Systems, IoT, and Machine Learning techniques.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <span class="company">VI Microsystems</span>
+                    <span class="duration">May 2024 - June 2024</span>
+                </div>
+                <p class="role">Student Intern</p>
+                <ul>
+                    <li>Learned tips and techniques of work by closely studying staff</li>
+                    <li>Gained hands-on experience with various Embedded systems and IoT technologies</li>
+                    <li>Acquired knowledge about DSP processors, PCB design, and various microprocessor/microcontroller kits</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <span class="company">MISPL Systems</span>
+                    <span class="duration">Feb 2024 - Mar 2024</span>
+                </div>
+                <p class="role">Student Intern</p>
+                <ul>
+                    <li>Completed data entry tasks accurately while adhering to strict deadlines</li>
+                    <li>Learned about cutting-edge technologies in automation including PLCs and Drives</li>
+                    <li>Managed stock maintenance activities in the company</li>
+                    <li>Worked as service assistant in the service department</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="education-header">Sri Sairam Engineering College</div>
+                <p class="degree">Bachelor of Engineering (Electronics and Communication Engineering)</p>
+                <div class="job-header">
+                    <span class="score">CGPA: 8.10 (till Semester VI)</span>
+                    <span class="duration">Expected 2026</span>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-header">MKM Matriculation Higher Secondary School</div>
+                <p class="degree">12th Standard</p>
+                <div class="job-header">
+                    <span class="score">92.6%</span>
+                    <span class="duration">2022</span>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-header">Lalaji Memorial Omega International School</div>
+                <p class="degree">10th Standard</p>
+                <div class="job-header">
+                    <span class="score">90.6%</span>
+                    <span class="duration">2020</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">Embedded Systems</div>
+                <div class="skill-card">IoT</div>
+                <div class="skill-card">C Programming</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">Presentations</div>
+                <div class="skill-card">Cisco Packet Tracer</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Certifications</h2>
+            
+            <div class="cert-item">
+                <div class="cert-title">IETE Internship Program on Image Processing</div>
+                <a href="https://drive.google.com/file/d/1wiZwHZx8azlMJ5aL2F7iPk8aY5hf-TGg/view?usp=drive_link" target="_blank" class="cert-link">View Certificate →</a>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-title">Cisco Packet Tracer Course</div>
+                <a href="https://drive.google.com/file/d/1xCbdC1v2blOjqJRgQc82gT7SlZUnOLDC/view?usp=sharing" target="_blank" class="cert-link">View Certificate →</a>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-title">Course on Embedded Systems</div>
+                <a href="https://drive.google.com/file/d/1UF4vhqdqqba5bmyEXkhhHAfFTlSlLM8b/view?usp=sharing" target="_blank" class="cert-link">View Certificate →</a>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-title">IoT Robotics Workshop</div>
+                <a href="https://drive.google.com/file/d/1xFKtu9K-Y5-CUpFxxlnBtbB6ijFVH5fw/view?usp=sharing" target="_blank" class="cert-link">View Certificate →</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>K. Melvin Joel - Portfolio</p>
+        </footer>
+    </div>
+</body>
+</html>
